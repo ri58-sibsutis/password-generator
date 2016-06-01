@@ -8,14 +8,15 @@ char* ConcatenateArrays(char* arrayA, int arrayASize,
 {
     int maxsize = arrayASize+arrayBSize;
     char* newarray = (char*)calloc(maxsize, sizeof(char));
-
-    for(int i=0; i<pos; i++)
+    
+    int i,j;
+    for( i=0; i<pos; i++)
         newarray[i] = arrayA[i];
 
-    for(int i=pos,j=0; j<arrayBSize && i<maxsize; j++,i++)
+    for( i=pos,j=0; j<arrayBSize && i<maxsize; j++,i++)
         newarray[i] = arrayB[j];
 
-    for(int i=pos+arrayBSize, j=pos; i<maxsize; i++, j++)
+    for( i=pos+arrayBSize, j=pos; i<maxsize; i++, j++)
         newarray[i] = arrayA[j];
 
     return newarray;
@@ -29,14 +30,14 @@ char* ConcatenateArrays_2(char* arrayA, int arrayASize,
 {
     int maxsize = arrayASize+arrayBSize+arrayCSize;
     char* newarray = (char*)calloc(maxsize, sizeof(char));
-
-    for(int i=0; i<pos1; i++)
+    int i,j,k;
+    for( i=0; i<pos1; i++)
         newarray[i] = arrayA[i];
 
-    for(int i=pos1,j=0; j<arrayBSize && i<maxsize; j++,i++)
+    for( i=pos1,j=0; j<arrayBSize && i<maxsize; j++,i++)
         newarray[i] = arrayB[j];
 
-    for(int i=pos1+pos2, k=0; k<arrayCSize && i<maxsize; k++, i++)
+    for( i=pos1+pos2, k=0; k<arrayCSize && i<maxsize; k++, i++)
         newarray[i] = arrayC[k];
 
     return newarray;
@@ -51,16 +52,16 @@ char* ConcatenateArrays_3(char* arrayA, int arrayASize,
 {
     int maxsize = arrayASize+arrayBSize+arrayCSize+arrayDSize;
     char* newarray = (char*)calloc(maxsize, sizeof(char));
-
-    for(int i=0; i<pos1; i++)
+    int i,j,k,q;
+    for( i=0; i<pos1; i++)
         newarray[i] = arrayA[i];
 
-    for(int i=pos1,j=0; j<arrayBSize && i<maxsize; j++,i++)
+    for( i=pos1,j=0; j<arrayBSize && i<maxsize; j++,i++)
         newarray[i] = arrayB[j];
 
-    for(int i=pos1+pos2, k=0; k<arrayCSize && i<maxsize; k++, i++)
+    for( i=pos1+pos2, k=0; k<arrayCSize && i<maxsize; k++, i++)
         newarray[i] = arrayC[k];
-    for(int i=pos1+pos2+pos3, q=0; q<arrayDSize && i<maxsize; q++, i++)
+    for( i=pos1+pos2+pos3, q=0; q<arrayDSize && i<maxsize; q++, i++)
     	newarray[i] = arrayD[q];
     
 
@@ -75,21 +76,22 @@ int main()
 {
 	char chislo[10];
 	char ch='0';
-	for (int i=0; i<10; i++)
+	int i;
+	for ( i=0; i<10; i++)
 	{
 		chislo[i]=ch;
 		ch++;
 	}
 	char letters_up[26];
 	ch='A';
-	for (int i=0; i<26; i++)
+	for ( i=0; i<26; i++)
 	{
 		letters_up[i]=ch;
 		ch++;
 	}
 	char letters_dn[26];
 	ch='a';
-	for (int i=0; i<26; i++)
+	for ( i=0; i<26; i++)
 	{
 		letters_dn[i]=ch;
 		ch++;
@@ -140,7 +142,7 @@ int main()
 			if (m == 1)
 			{
 				sum=c;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=chislo[rand() % sum];
 					printf("%c", out_arr[i]);
@@ -149,7 +151,7 @@ int main()
 			else if (m == 2)
 			{
 				sum=l;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=letters_up[rand() % sum];
 					printf("%c ", out_arr[i]);
@@ -158,7 +160,7 @@ int main()
 			else if (m == 3)
 			{
 				sum=l;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=letters_dn[rand() % sum];
 					printf("%c ", out_arr[i]);
@@ -167,7 +169,7 @@ int main()
 			else if (m == 4)
 			{
 				sum=s;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=symbol[rand() % sum];
 					printf("%c ", out_arr[i]);
@@ -176,7 +178,7 @@ int main()
 			else if (m == 5)
 			{
 			   	sum=c+l;
-			   	for (int i=0; i<n; i++)
+			   	for ( i=0; i<n; i++)
 				{
 			   		out_arr[i]=all_1[rand() % sum];
 			   		printf("%c ", out_arr[i]);
@@ -185,7 +187,7 @@ int main()
 		   	else if (m == 6)
 		    {
 		    	sum=c+l;
-		    	for (int i=0; i<n; i++)
+		    	for ( i=0; i<n; i++)
 		    	{
 		    		out_arr[i]=all_2[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -194,7 +196,7 @@ int main()
 		    else if (m == 7)
 		    {
 		    	sum=c+s;
-		    	for (int i=0; i<n; i++)
+		    	for ( i=0; i<n; i++)
 		    	{
 		    		out_arr[i]=all_3[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -203,7 +205,7 @@ int main()
 		    else if (m == 8)
 		    {
 		    	sum=2*l;
-		    	for (int i=0; i<n; i++)
+		    	for ( i=0; i<n; i++)
 		    	{
 		    		out_arr[i]=all_4[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -212,7 +214,7 @@ int main()
 		    else if (m == 9)
 		    {
 		    	sum=l+s;
-		    	for (int i=0; i<n; i++)
+		    	for ( i=0; i<n; i++)
 		    	{
 		    		out_arr[i]=all_5[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -221,7 +223,7 @@ int main()
 		    else if (m == 10)
 		    {
 		    	sum=l+s;
-		    	for (int i=0; i<n; i++)
+		    	for ( i=0; i<n; i++)
 		    	{
 		    		out_arr[i]=all_6[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -230,7 +232,7 @@ int main()
 			else if (m == 11)
 			{
 				sum=n+l+l;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=all_7[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -239,7 +241,7 @@ int main()
 		    else if (m == 12)
 			{
 				sum=n+l+s;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=all_8[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -248,7 +250,7 @@ int main()
 		    else if (m == 13)
 			{
 				sum=n+l+s;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=all_9[rand() % sum];
 		    		printf("%c ", out_arr[i]);
@@ -257,7 +259,7 @@ int main()
 			else if (m == 14)
 			{
 				sum=n+l+l+s;
-				for (int i=0; i<n; i++)
+				for ( i=0; i<n; i++)
 				{
 					out_arr[i]=all_10[rand() % sum];
 		    		printf("%c", out_arr[i]);
