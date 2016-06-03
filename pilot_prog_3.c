@@ -123,7 +123,7 @@ int main()
     char* all_10= ConcatenateArrays_3(chislo,10, letters_up,26, letters_dn,26, symbol, 31 ,10, 26,26);
    
     int n=0;
-    printf("Please enter the length of your password: ");
+    printf("Please enter the length of your password (6 to 128): ");
     scanf("%d", &n);
     char *out_arr =  (char*)calloc(n, sizeof(char));;
     srand(time(NULL));
